@@ -1,5 +1,6 @@
-import {Switch} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import React from 'react';
+import LoginPage from "../pages/loginPage/templates/loginPage";
 
 export function AppRouter() {
 
@@ -7,7 +8,7 @@ export function AppRouter() {
         <>
             <Switch>
                 {/*<Route exact path="/" component={}/>*/}
-                {/*<Route path={`/login`} component={}/>*/}
+                <Route path={`/login`} component={LoginPage}/>
                 {/*<Route path={`/register`}/>} />*/}
             </Switch>
         </>

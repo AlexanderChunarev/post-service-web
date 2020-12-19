@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+.main {
+   margin-top: 72px;
+   display: flex;
+   justify-content: center;
+}
+
+.promo-section {
+   margin: 72px 400px 0;
+   display: flex;
+}
+
+.promo-section-wrapper {
+   display: flex;
+   flex-direction: row;
+}
+
+.promo-section-wrapper div {
+   max-width: 400px;
+}
+
+.promo-section-wrapper img {
+   max-width: 400px;
+   margin-left: 24px;
+}
+
+.promo-section-actions {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.promo-section-wrapper p {
+   padding-top: 16px;
+   text-align: left;
+}
+
+.promo-section-wrapper h1 {
+   text-align: left;
+}
+
+/*.promo-section-buttons {*/
+/*   display: flex;*/
+/*}*/
