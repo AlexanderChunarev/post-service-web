@@ -3,8 +3,6 @@ import Button from '@material-ui/core/Button';
 
 import "./Main.css"
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {useDispatch} from "react-redux";
-import {LoginUser} from "../../../../store/partials/profile/actions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,10 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Main() {
     const classes = useStyles();
-    const dispatch = useDispatch();
-    const t = () => {
-        dispatch(LoginUser())
-    }
+
     return (
         <main className="main">
             <section className="promo-section">
@@ -65,14 +60,13 @@ function Main() {
                             <Button className={classes.registerButton} variant="outlined">
                                 Зареєструватися
                             </Button>
-                            <Button className={classes.loginButton} variant="outlined" color="secondary" onClick={t}>
+                            <Button className={classes.loginButton} variant="outlined" color="secondary">
                                 Увійти
                             </Button>
                         </div>
                     </div>
                     <img src="https://new.novaposhta.ua/img_cbc_landing_1-1.74a2217f1fc1d12a2d06.png" alt={""}/>
                 </div>
-
             </section>
         </main>
     )

@@ -2,40 +2,18 @@
 
 .header {
     width: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 72px;
-    background-color: #fa5555;
-    border: 1px solid #E8EFF6;
-    box-sizing: border-box;
-    z-index: 2;
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0 4px 14px -2px #d7d7d7;
+}
+
+.header div {
+    height: 100%;
     display: flex;
-    flex-flow: row nowrap;
+    align-items: center;
 }
 
-.header-search {
-    position: absolute;    
-    margin: 0 22.361%;   
-}
-
-.header span {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 26px;
-    color: #262837;
-    margin: 22px 8px 24px;
-}
-
-.header svg {
-    margin: auto 30px;
-    cursor: pointer;
-}
-
-.header-logo {
-    width: 21.33px;
-    height: 32px;
-    margin: 16px 0 23px;
+div h1 {
+    margin: auto;
 }
