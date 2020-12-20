@@ -2,6 +2,7 @@ import actions from '../actions-types';
 import axios from "axios";
 
 const loginUserAction = (data) => {
+    console.log(data)
     return {
         type: actions.LOGIN,
         payload: data
@@ -36,7 +37,7 @@ export const logoutUser = (data) => {
     return (dispatch) => {
         document.cookie = ""
         dispatch(logoutUserAction(data))
-        console.log("das")
+        // window.location.href = '/'
     }
 }
 

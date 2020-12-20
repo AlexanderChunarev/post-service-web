@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 
 import "./Main.css"
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#d8232a',
         borderColor: "1px solid #d8232a",
         border: "1px solid #d8232a",
-        '& .MuiButton-outlinedSecondary' : {
+        '& .MuiButton-outlinedSecondary': {
             color: '#d8232a',
             borderColor: "1px solid #d8232a",
         },
@@ -42,6 +43,15 @@ const useStyles = makeStyles((theme) => ({
 
 function Main() {
     const classes = useStyles();
+    const history = useHistory()
+
+    const onRegisterButtonEvent = () => {
+        history.push('/register');
+    }
+
+    const onLoginButtonEvent = () => {
+        history.push('/login');
+    }
 
     return (
         <main className="main">
@@ -52,15 +62,18 @@ function Main() {
                             <h1 className="promo-section-title">
                                 Керуйте логістикою у Бізнес-кабінеті «Нова Пошта»
                             </h1>
-                            <p className="promo-section-text">Зареєструйтеся у Бізнес-кабінеті та керуйте вашими посилками.
+                            <p className="promo-section-text">Зареєструйтеся у Бізнес-кабінеті та керуйте вашими
+                                посилками.
                                 Замовляйте додаткові послуги та
                                 сплачуйте за них.</p>
                         </div>
                         <div className={classes.root}>
-                            <Button className={classes.registerButton} variant="outlined">
+                            <Button className={classes.registerButton} variant="outlined"
+                                    onClick={onRegisterButtonEvent}>
                                 Зареєструватися
                             </Button>
-                            <Button className={classes.loginButton} variant="outlined" color="secondary">
+                            <Button className={classes.loginButton} variant="outlined" onClick={onLoginButtonEvent}
+                                    color="secondary">
                                 Увійти
                             </Button>
                         </div>
