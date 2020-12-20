@@ -20,6 +20,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles, useTheme} from '@material-ui/core/styles';
 import {CabinetRouter} from "../../Routers";
 import {Link} from "react-router-dom";
+import './Main.css';
 
 const drawerWidth = 240;
 
