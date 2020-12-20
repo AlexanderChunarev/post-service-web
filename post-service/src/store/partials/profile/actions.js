@@ -39,7 +39,6 @@ export const loginUser = (data) => {
             .then(response => {
                 document.cookie = `token=${response.data.token}`
                 dispatch(loginUserAction(response.data))
-                window.location.href = '/user-cabinet'
             })
     }
 }
@@ -48,7 +47,6 @@ export const logoutUser = (data) => {
     return (dispatch) => {
         document.cookie = ""
         dispatch(logoutUserAction(data))
-        // window.location.href = '/'
     }
 }
 

@@ -10,10 +10,10 @@ export function AppRouter() {
     return (
         <>
             <Switch>
-                {<Route path={`/user-cabinet`} component={cabinetLayout}/>}
                 <Route exact path={`/home`} component={HomePage}/>
                 <Route exact path={`/login`} component={LoginPage}/>
                 <Route exact path={`/register`} component={RegisterPage}/>
+                <Route path={`/user-cabinet`} component={cabinetLayout}/>
             </Switch>
         </>
     )
