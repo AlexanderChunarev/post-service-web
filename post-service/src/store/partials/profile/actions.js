@@ -1,22 +1,35 @@
 import actions from '../actions-types';
 import axios from "axios";
 
-export const signInUser = (data) => {
-    const {id, firstName, lastName, email, phone, token} = data;
+const loginUserAction = (data) => {
     return {
         type: actions.LOGIN,
-        payload: {
-            id, firstName, lastName, email, phone, token
-        }
+        payload: data
     }
 }
 
-export const LoginUser = (data) => {
+const registerUserAction = (data) => {
+    return {
+        type: actions.REGISTER,
+        payload: data
+    }
+}
+
+export const loginUser = (data) => {
     return (dispatch) => {
         axios.post(`api/account/authenticate`, data)
             .then(response => {
                 document.cookie = `token=${response.data.token}`
-                dispatch(signInUser(response.data))
+                dispatch(loginUserAction(response.data))
+            })
+    }
+}
+
+export const registerUser = (data) => {
+    return (dispatch) => {
+        axios.post(`api/client/register`, data)
+            .then(response => {
+                dispatch(registerUserAction(response.data))
             })
     }
 }

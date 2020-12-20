@@ -5,14 +5,14 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useDispatch} from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import {useTextField} from "../../../../hooks/hooks";
-import {LoginUser} from "../../../../store/partials/profile/actions";
+import {loginUser} from "../../../../store/partials/profile/actions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
         width: 400,
-        marginTop: 128,
+        marginTop: 64,
         '& > *': {
             margin: theme.spacing(1),
             textAlign: '',
@@ -43,7 +43,7 @@ function LoginForm() {
             login: email.value,
             password: password.value
         }
-        dispatch(LoginUser(data))
+        dispatch(loginUser(data))
     }
     return (
         <div>

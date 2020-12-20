@@ -1,13 +1,9 @@
 import React from "react";
-import Header from "./templates/Header/Header";
-import Main from "./templates/Main/Main";
+import LoginSection from "./templates/components/LoginSection";
 
 function LoginPage() {
     return (
-        <div>
-            <Header/>
-            <Main/>
-        </div>
+        <LoginSection/>
     )
 }
 

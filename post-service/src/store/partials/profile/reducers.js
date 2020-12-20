@@ -1,12 +1,15 @@
 import actions from '../actions-types';
 
 const initialState = {
-    id: 1,
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    role: 0,
+    user: {
+        id: 1,
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        role: 0,
+    },
+    register_status: undefined
 }
 
 export const login = (state = initialState, action) => {
@@ -14,8 +17,14 @@ export const login = (state = initialState, action) => {
         case actions.LOGIN:
             return {
                 ...state,
-                ...action.payload
+                user: action.payload
             }
-        default: return state
+        case actions.REGISTER:
+            return {
+                ...state,
+                register_status: "success"
+            }
+        default:
+            return state
     }
 }
