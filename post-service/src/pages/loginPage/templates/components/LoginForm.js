@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
 function LoginForm() {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const email = useTextField('korben@team.com', 'email');
-    const password = useTextField('asd', 'password');
+    const email = useTextField('', 'email');
+    const password = useTextField('', 'password');
     const singIn = (e) => {
         e.preventDefault()
         const data = {
@@ -48,8 +48,8 @@ function LoginForm() {
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={singIn}>
-                <TextField id="outlined-basic" {...email} type={'email'} required label="Email" variant="outlined" value={"korben@team.com"}/>
-                <TextField id="outlined-basic" {...password} type={'password'} required label="Password" variant="outlined" value={"asd"}/>
+                <TextField id="outlined-basic" {...email} type={'email'} required label="Email" variant="outlined"/>
+                <TextField id="outlined-basic" {...password} type={'password'} required label="Password" variant="outlined" />
                 <Button type='submit' className={classes.registerButton} variant="outlined">
                     Увійти
                 </Button>

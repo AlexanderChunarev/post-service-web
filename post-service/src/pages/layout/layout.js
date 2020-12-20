@@ -9,13 +9,13 @@ import {logoutUser} from "../../store/partials/profile/actions";
 function Layout() {
     const dispatch = useDispatch()
 
-    jwt.verify(Cookies.get('token'), 'rEWbEvPXZFOiiGlh', function (err, decoded) {
-        if (err && window.location.pathname !== '/') {
-            const data = {status: false}
-            dispatch(logoutUser(data))
-            window.location.href = "/"
-        }
-    });
+    // jwt.verify(Cookies.get('token'), 'rEWbEvPXZFOiiGlh', function (err, decoded) {
+    //     if (err && window.location.pathname !== '/') {
+    //         const data = {status: false}
+    //         dispatch(logoutUser(data))
+    //         window.location.href = "/"
+    //     }
+    // });
     
     return (
         <>
