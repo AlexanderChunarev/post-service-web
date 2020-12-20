@@ -58,6 +58,7 @@ export default function StickyHeadTable() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const dispatch = useDispatch();
+    const user = useSelector(state => state.login)
     const orders = useSelector(state => state.createOrder.orderList)
     const row = orders.map(order => mapToObject(
         order.orderId,
@@ -74,7 +75,7 @@ export default function StickyHeadTable() {
 
     useEffect(() => {
         //dispatch(orderList(user.phoneNumber))
-        dispatch(orderList('1111'))
+        dispatch(orderList(user.phoneNumber))
     }, [])
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(+event.target.value);

@@ -1,12 +1,16 @@
 import actions from '../actions-types';
 
 const initialState = {
-    id: 1,
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    role: 0,
+    user: {
+        id: 1,
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        role: 0,
+    },
+    register_status: undefined,
+    isLoggedIn: false
 }
 
 export const login = (state = initialState, action) => {
@@ -14,9 +18,21 @@ export const login = (state = initialState, action) => {
         case actions.LOGIN:
             return {
                 ...state,
-                ...action.payload
+                user: action.payload,
+                isLoggedIn: true
             }
-        default: return state
+        case actions.REGISTER:
+            return {
+                ...state,
+                register_status: "success"
+            }
+        case actions.LOGOUT:
+            return {
+                ...state,
+                isLoggedIn: false
+            }
+        default:
+            return state
     }
 }
 export const update = (state = initialState, action) => {

@@ -1,4 +1,4 @@
-import Main from "./templates/Main/Main";
+import Main from "./components/Main/Main";
 import React from "react";
 
 function cabinetLayout() {

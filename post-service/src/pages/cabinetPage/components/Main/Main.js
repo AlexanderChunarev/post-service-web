@@ -144,10 +144,10 @@ function ResponsiveDrawer(props) {
                     </Drawer>
                 </Hidden>
             </nav>
-            <main className={classes.content}>
+            <div className={classes.content}>
                 <div className={classes.toolbar}/>
                 <CabinetRouter />
-            </main>
+            </div>
         </div>
     );
 }

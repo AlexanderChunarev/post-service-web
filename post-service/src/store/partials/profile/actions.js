@@ -1,38 +1,67 @@
 import actions from '../actions-types';
 import axios from "axios";
 
-const signInUser = (data) => {
-    const {id, firstName, lastName, email, phone, token} = data;
+const loginUserAction = (data) => {
     return {
         type: actions.LOGIN,
-        payload: {
-            id, firstName, lastName, email, phone, token
-        }
+        payload: data
     }
 }
 
-const updateUserAction = (data) =>{
+const updateUserAction = (data) => {
     const {name, surname, phonenumber, email} = data;
-    return{
+    return {
         type: actions.UPDATE_INFO,
-        payload:{
+        payload: {
             name, surname, phonenumber, email
         }
     }
 }
 
-export const LoginUser = (data) => {
+const registerUserAction = (data) => {
+    return {
+        type: actions.REGISTER,
+        payload: data
+    }
+}
+
+const logoutUserAction = (data) => {
+    return {
+        type: actions.LOGOUT,
+        payload: data.status
+    }
+}
+
+export const loginUser = (data) => {
     return (dispatch) => {
         axios.post(`api/account/authenticate`, data)
             .then(response => {
                 document.cookie = `token=${response.data.token}`
-                dispatch(signInUser(response.data))
+                dispatch(loginUserAction(response.data))
+                window.location.href = '/user-cabinet'
             })
     }
 }
 
-export  const UpdateUser = (id, data) =>{
-    return (dispatch) =>{
+export const logoutUser = (data) => {
+    return (dispatch) => {
+        document.cookie = ""
+        dispatch(logoutUserAction(data))
+        console.log("das")
+    }
+}
+
+export const registerUser = (data) => {
+    return (dispatch) => {
+        axios.post(`api/client/register`, data)
+            .then(response => {
+                dispatch(registerUserAction(response.data))
+            })
+    }
+}
+
+export const UpdateUser = (id, data) => {
+    return (dispatch) => {
         axios.patch(`api/client/update/${id}`, data)
             .then(response => {
                 dispatch(updateUserAction(response.data))

@@ -5,14 +5,14 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useDispatch} from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import {useTextField} from "../../../../hooks/hooks";
-import {LoginUser} from "../../../../store/partials/profile/actions";
+import {loginUser} from "../../../../store/partials/profile/actions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
         width: 400,
-        marginTop: 128,
+        marginTop: 64,
         '& > *': {
             margin: theme.spacing(1),
             textAlign: '',
@@ -35,21 +35,21 @@ const useStyles = makeStyles((theme) => ({
 function LoginForm() {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const email = useTextField('korben@team.com', 'email');
-    const password = useTextField('asd', 'password');
+    const email = useTextField('', 'email');
+    const password = useTextField('', 'password');
     const singIn = (e) => {
         e.preventDefault()
         const data = {
             login: email.value,
             password: password.value
         }
-        dispatch(LoginUser(data))
+        dispatch(loginUser(data))
     }
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={singIn}>
-                <TextField id="outlined-basic" {...email} type={'email'} required label="Email" variant="outlined" value={"korben@team.com"}/>
-                <TextField id="outlined-basic" {...password} type={'password'} required label="Password" variant="outlined" value={"asd"}/>
+                <TextField id="outlined-basic" {...email} type={'email'} required label="Email" variant="outlined"/>
+                <TextField id="outlined-basic" {...password} type={'password'} required label="Password" variant="outlined" />
                 <Button type='submit' className={classes.registerButton} variant="outlined">
                     Увійти
                 </Button>
