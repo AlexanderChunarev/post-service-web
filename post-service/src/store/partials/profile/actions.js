@@ -15,6 +15,13 @@ const registerUserAction = (data) => {
     }
 }
 
+const logoutUserAction = (data) => {
+    return {
+        type: actions.LOGOUT,
+        payload: data.status
+    }
+}
+
 export const loginUser = (data) => {
     return (dispatch) => {
         axios.post(`api/account/authenticate`, data)
@@ -22,6 +29,14 @@ export const loginUser = (data) => {
                 document.cookie = `token=${response.data.token}`
                 dispatch(loginUserAction(response.data))
             })
+    }
+}
+
+export const logoutUser = (data) => {
+    return (dispatch) => {
+        document.cookie = ""
+        dispatch(logoutUserAction(data))
+        console.log("das")
     }
 }
 
