@@ -5,7 +5,7 @@ const createOrderAction = (data) =>{
     const {senderId,
         recipientName,
         recipientSurname,
-        recipientPhone,
+        recipientPhonenumber,
         parcelName,
         parcelDescription,
         status} = data;
@@ -15,7 +15,7 @@ const createOrderAction = (data) =>{
             senderId,
             recipientName,
             recipientSurname,
-            recipientPhone,
+            recipientPhonenumber,
             parcelName,
             parcelDescription,
             status
@@ -27,7 +27,8 @@ export const createOrder = (data) =>{
     return (dispatch) => {
         axios.post(`api/order/register`, data)
             .then(response => {
-                dispatch(createOrderAction(response.data))
+                console.log(response.data);
+                dispatch(createOrderAction(response.data));
             })
     }
 }

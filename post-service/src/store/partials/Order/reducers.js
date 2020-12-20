@@ -4,7 +4,7 @@ const initialState = {
     senderId: 1,
     recipientName: '',
     recipientSurname:'',
-    recipientPhone:'',
+    recipientPhonenumber:'',
     parcelName:'',
     parcelDescription:'',
     status:''

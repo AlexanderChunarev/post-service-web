@@ -42,7 +42,7 @@ export default function CreateOrderForm(props) {
             senderId: 100,
             recipientName: recName.value,
             recipientSurname: recSurname.value,
-            recipientPhone: recPhone.value,
+            recipientPhonenumber: recPhone.value,
             parcelName: parcelName.value,
             parcelDescription: parcelDescription.value,
             status: statuses.REGISTERED
