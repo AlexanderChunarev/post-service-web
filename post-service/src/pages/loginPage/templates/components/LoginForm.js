@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
-
+import {useHistory} from "react-router-dom";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useDispatch} from "react-redux";
 import TextField from "@material-ui/core/TextField";
@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 function LoginForm() {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const history = useHistory()
     const email = useTextField('', 'email');
     const password = useTextField('', 'password');
     const singIn = (e) => {
@@ -44,6 +45,7 @@ function LoginForm() {
             password: password.value
         }
         dispatch(loginUser(data))
+        history.push('/user-cabinet')
     }
     return (
         <div>
