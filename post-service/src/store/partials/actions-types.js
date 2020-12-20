@@ -1,6 +1,7 @@
 const actions = {
     LOGIN: "LOGIN",
-    REGISTER: "REGISTER"
+    REGISTER: "REGISTER",
+    LOGOUT: "LOGOUT"
 };
 
 export default actions;

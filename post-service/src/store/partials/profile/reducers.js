@@ -9,7 +9,8 @@ const initialState = {
         phoneNumber: "",
         role: 0,
     },
-    register_status: undefined
+    register_status: undefined,
+    isLoggedIn: false
 }
 
 export const login = (state = initialState, action) => {
@@ -17,12 +18,18 @@ export const login = (state = initialState, action) => {
         case actions.LOGIN:
             return {
                 ...state,
-                user: action.payload
+                user: action.payload,
+                isLoggedIn: true
             }
         case actions.REGISTER:
             return {
                 ...state,
                 register_status: "success"
+            }
+        case actions.LOGOUT:
+            return {
+                ...state,
+                isLoggedIn: false
             }
         default:
             return state
