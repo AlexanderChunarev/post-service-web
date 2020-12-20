@@ -78,7 +78,7 @@ function ResponsiveDrawer(props) {
                 </ListItem>
                 <ListItem button key='Власні замовлення'>
                     <ListItemIcon><AppsIcon/></ListItemIcon>
-                    <ListItemText primary='Власні замовлення'/>
+                    <Link to={`/user-cabinet/sended-list`}><ListItemText primary='Власні замовлення'/></Link>
                 </ListItem>
                 <ListItem button key='Відправлені замовлення'>
                     <ListItemIcon><EmailIcon/></ListItemIcon>

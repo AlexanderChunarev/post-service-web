@@ -1,7 +1,7 @@
 import actions from '../actions-types';
 import axios from "axios";
 
-export const signInUser = (data) => {
+const signInUser = (data) => {
     const {id, firstName, lastName, email, phone, token} = data;
     return {
         type: actions.LOGIN,
