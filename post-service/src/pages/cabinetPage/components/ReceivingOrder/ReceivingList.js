@@ -58,7 +58,7 @@ export default function SendedTable() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const dispatch = useDispatch();
-    const user = useSelector(state => state.login)
+    const user = useSelector(state => state.login.user)
     const orders = useSelector(state => state.createOrder.orderList)
     const row = orders.map(order => mapToObject(
         order.orderId,
@@ -75,7 +75,7 @@ export default function SendedTable() {
 
     useEffect(() => {
         console.log(user)
-        dispatch(sendedList(user.phoneNumber))
+        dispatch(sendedList(user.id))
     }, [])
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(+event.target.value);

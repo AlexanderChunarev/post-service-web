@@ -33,7 +33,7 @@ export default function UpdateForm(props) {
     const surname = useTextField('', 'surname');
     const phone = useTextField('', 'phonenumber');
     const email = useTextField('', 'email');
-    const user = useSelector(state => state.login)
+    const user = useSelector(state => state.login.user)
     const submitHandler = (e) => {
         e.preventDefault()
         const data = {
@@ -52,28 +52,28 @@ export default function UpdateForm(props) {
                 <TextField
                     id="outlined-name"
                     label="Ім'я"
-                    value={name.value}
+                    value={user.name}
                     {...name}
                     variant="outlined"
                 />
                 <TextField
                     id="outlined-name"
                     label="Прізвище"
-                    value={surname.value}
+                    value={user.surname}
                     {...surname}
                     variant="outlined"
                 />
                 <TextField
                     id="outlined-name"
                     label="Моб. телефон"
-                    value={phone.value}
+                    value={user.phoneNumber}
                     {...phone}
                     variant="outlined"
                 />
                 <TextField
                     id="outlined-name"
                     label="Email"
-                    value={email.value}
+                    value={user.email}
                     {...email}
                     variant="outlined"
                 />
@@ -87,7 +87,7 @@ export default function UpdateForm(props) {
                 startIcon={<SaveIcon/>}
                 onClick={()=>{console.log()}}
             >
-                Створити
+                Зберегти
             </Button>
         </form>
     );

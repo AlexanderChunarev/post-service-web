@@ -34,7 +34,7 @@ export default function CreateOrderForm(props) {
     const recPhone = useTextField('', 'recipientPhone');
     const parcelName = useTextField('', 'parcelName');
     const parcelDescription = useTextField('', 'parcelDescription');
-    const user = useSelector(state => state.login)
+    const user = useSelector(state => state.login.user)
     const submitHandler = (e) => {
         e.preventDefault()
         const data = {

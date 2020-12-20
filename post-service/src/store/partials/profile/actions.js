@@ -39,6 +39,7 @@ export const loginUser = (data) => {
             .then(response => {
                 document.cookie = `token=${response.data.token}`
                 dispatch(loginUserAction(response.data))
+                console.log(response.data)
             })
     }
 }

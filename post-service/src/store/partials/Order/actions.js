@@ -47,7 +47,7 @@ export const sendedList = (id) => {
         axios.get(`api/client/${id}/departure-orders`)
             .then(response => {
                 console.log(response.data);
-                dispatch(OrderListAction(response.data));
+                dispatch(SendedListAction(response.data));
             })
     }
 }

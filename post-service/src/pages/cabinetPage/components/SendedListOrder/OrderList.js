@@ -13,10 +13,10 @@ import {orderList} from "../../../../store/partials/Order/actions";
 
 const columns = [
     {id: 'orderId', label: 'Id', minWidth: 200},
-    {id: 'recipientFullName', label: 'Відправник', minWidth: 200},
+    {id: 'fullName', label: 'Отримувач', minWidth: 200},
     {
-        id: 'fullName',
-        label: 'Отримувач',
+        id: 'recipientFullName',
+        label: 'Відправник',
         minWidth: 200,
         align: 'right',
     },
@@ -40,8 +40,8 @@ const columns = [
     },
 ];
 
-function mapToObject(orderId, recipientFullName, fullName, parcelName, parcelDescription, status) {
-    return {orderId, recipientFullName, fullName, parcelName, parcelDescription, status};
+function mapToObject(orderId, fullName, recipientFullName, parcelName, parcelDescription, status) {
+    return {orderId, fullName, recipientFullName, parcelName, parcelDescription, status};
 }
 
 const useStyles = makeStyles({
@@ -58,7 +58,7 @@ export default function StickyHeadTable() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const dispatch = useDispatch();
-    const user = useSelector(state => state.login)
+    const user = useSelector(state => state.login.user)
     const orders = useSelector(state => state.createOrder.orderList)
     const row = orders.map(order => mapToObject(
         order.orderId,
@@ -74,7 +74,7 @@ export default function StickyHeadTable() {
     };
 
     useEffect(() => {
-        //dispatch(orderList(user.phoneNumber))
+        console.log(user)
         dispatch(orderList(user.phoneNumber))
     }, [])
     const handleChangeRowsPerPage = (event) => {
