@@ -19,3 +19,14 @@ export const login = (state = initialState, action) => {
         default: return state
     }
 }
+export const update = (state = initialState, action) => {
+    switch (action.type) {
+        case actions.UPDATE_INFO:
+            return {
+                ...state,
+                ...action.payload
+            }
+        default: return state
+    }
+}
+

@@ -11,12 +11,31 @@ const signInUser = (data) => {
     }
 }
 
+const updateUserAction = (data) =>{
+    const {name, surname, phonenumber, email} = data;
+    return{
+        type: actions.UPDATE_INFO,
+        payload:{
+            name, surname, phonenumber, email
+        }
+    }
+}
+
 export const LoginUser = (data) => {
     return (dispatch) => {
         axios.post(`api/account/authenticate`, data)
             .then(response => {
                 document.cookie = `token=${response.data.token}`
                 dispatch(signInUser(response.data))
+            })
+    }
+}
+
+export  const UpdateUser = (id, data) =>{
+    return (dispatch) =>{
+        axios.patch(`api/client/update/${id}`, data)
+            .then(response => {
+                dispatch(updateUserAction(response.data))
             })
     }
 }

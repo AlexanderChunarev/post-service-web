@@ -26,59 +26,55 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CreateOrderForm(props) {
+export default function UpdateForm(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const recName = useTextField('', 'recipientName');
-    const recSurname = useTextField('', 'recipientSurname');
-    const recPhone = useTextField('', 'recipientPhone');
-    const parcelName = useTextField('', 'parcelName');
-    const parcelDescription = useTextField('', 'parcelDescription');
+    const name = useTextField('', 'name');
+    const surname = useTextField('', 'surname');
+    const phone = useTextField('', 'phonenumber');
+    const email = useTextField('', 'email');
     const user = useSelector(state => state.login)
     const submitHandler = (e) => {
         e.preventDefault()
         const data = {
-            senderId: 1640006838,
-            recipientName: recName.value,
-            recipientSurname: recSurname.value,
-            recipientPhonenumber: recPhone.value,
-            parcelName: parcelName.value,
-            parcelDescription: parcelDescription.value,
-            status: statuses.REGISTERED
+            name: name.value,
+            surname: surname.value,
+            phonenumber: phone.value,
+            email: email.value,
         }
-        dispatch(createOrder(data))
+        dispatch(createOrder('1640006838',data))
     }
 
     return (
         <form className={classes.root} noValidate autoComplete="off" onSubmit={submitHandler}>
-            <h1>Створити посилку</h1>
+            <h1>Зміна даних</h1>
             <div>
                 <TextField
                     id="outlined-name"
-                    label="Ім'я отримувача"
-                    value={recName.value}
-                    {...recName}
+                    label="Ім'я"
+                    value={name.value}
+                    {...name}
                     variant="outlined"
                 />
                 <TextField
                     id="outlined-name"
-                    label="Прізвище отримувача"
-                    value={recSurname.value}
-                    {...recSurname}
+                    label="Прізвище"
+                    value={surname.value}
+                    {...surname}
                     variant="outlined"
                 />
                 <TextField
                     id="outlined-name"
                     label="Моб. телефон"
-                    value={recPhone.value}
-                    {...recPhone}
+                    value={phone.value}
+                    {...phone}
                     variant="outlined"
                 />
                 <TextField
                     id="outlined-name"
-                    label="Назва посилки"
-                    value={parcelName.value}
-                    {...parcelName}
+                    label="Email"
+                    value={email.value}
+                    {...email}
                     variant="outlined"
                 />
                 <TextField

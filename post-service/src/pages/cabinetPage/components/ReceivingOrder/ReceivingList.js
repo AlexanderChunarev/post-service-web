@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import {useDispatch, useSelector} from "react-redux";
-import {orderList} from "../../../../store/partials/Order/actions";
+import {sendedList} from "../../../../store/partials/Order/actions";
 
 const columns = [
     {id: 'orderId', label: 'Id', minWidth: 200},
@@ -53,7 +53,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function StickyHeadTable() {
+export default function SendedTable() {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -61,8 +61,8 @@ export default function StickyHeadTable() {
     const orders = useSelector(state => state.createOrder.orderList)
     const row = orders.map(order => mapToObject(
         order.orderId,
-        order.recipientName + " " + order.recipientSurname,
         order.user.name + " " + order.user.surname,
+        order.recipientName + " " + order.recipientSurname,
         order.parcel.name,
         order.parcel.description,
         order.status
@@ -74,7 +74,7 @@ export default function StickyHeadTable() {
 
     useEffect(() => {
         //dispatch(orderList(user.phoneNumber))
-        dispatch(orderList('1111'))
+        dispatch(sendedList('1640006838'))
     }, [])
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(+event.target.value);

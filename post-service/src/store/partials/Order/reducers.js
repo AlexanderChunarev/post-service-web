@@ -1,13 +1,16 @@
 import actions from '../actions-types';
 
 const initialState = {
-    senderId: 1,
-    recipientName: '',
-    recipientSurname:'',
-    recipientPhonenumber:'',
-    parcelName:'',
-    parcelDescription:'',
-    status:''
+    order: {
+        senderId: 1,
+        recipientName: '',
+        recipientSurname: '',
+        recipientPhonenumber: '',
+        parcelName: '',
+        parcelDescription: '',
+        status: ''
+    },
+    orderList:[],
 }
 
 export const createOrder = (state = initialState, action) => {
@@ -15,8 +18,20 @@ export const createOrder = (state = initialState, action) => {
         case actions.CREATE_ORDER:
             return {
                 ...state,
-                ...action.payload
+                order: action.payload
             }
-        default: return state
+        case actions.FETCH_RECEIVING_ORDERS:
+            return {
+                ...state,
+                orderList: action.payload
+            }
+        case actions.FETCH_SENDED_ORDERS:
+            return {
+                ...state,
+                orderList: action.payload
+            }
+        default:
+            return state
     }
 }
+

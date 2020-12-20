@@ -82,11 +82,11 @@ function ResponsiveDrawer(props) {
                 </ListItem>
                 <ListItem button key='Відправлені замовлення'>
                     <ListItemIcon><EmailIcon/></ListItemIcon>
-                    <ListItemText primary='Відправлені замовлення'/>
+                    <Link to={`/user-cabinet/receiving-list`}><ListItemText primary='Відправлені замовлення'/></Link>
                 </ListItem>
                 <ListItem button key='Зміна даних'>
                     <ListItemIcon> <SettingsIcon/></ListItemIcon>
-                    <ListItemText primary='Зміна даних'/>
+                    <Link to={`/user-cabinet/update-info`}><ListItemText primary='Зміна даних'/></Link>
                 </ListItem>
             </List>
         </div>
@@ -146,7 +146,7 @@ function ResponsiveDrawer(props) {
             </nav>
             <main className={classes.content}>
                 <div className={classes.toolbar}/>
-                <CabinetRouter/>
+                <CabinetRouter />
             </main>
         </div>
     );
