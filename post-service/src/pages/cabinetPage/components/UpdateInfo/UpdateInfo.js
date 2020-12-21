@@ -7,6 +7,8 @@ import {useTextField} from "../../../../hooks/hooks";
 import {statuses} from "../../../../models/statuses";
 import {useDispatch, useSelector} from "react-redux";
 import {createOrder} from "../../../../store/partials/Order/actions";
+import {update} from "../../../../store/partials/profile/reducers";
+import {UpdateUser} from "../../../../store/partials/profile/actions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
 export default function UpdateForm(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const name = useTextField('', 'name');
-    const surname = useTextField('', 'surname');
-    const phone = useTextField('', 'phonenumber');
-    const email = useTextField('', 'email');
     const user = useSelector(state => state.login.user)
+    const name = useTextField(`${user.firstName}`, 'name');
+    const surname = useTextField(`${user.lastName}`, 'surname');
+    const phone = useTextField(`${user.phoneNumber}`, 'phonenumber');
+    const email = useTextField(`${user.email}`, 'email');
     const submitHandler = (e) => {
         e.preventDefault()
         const data = {
@@ -42,7 +44,7 @@ export default function UpdateForm(props) {
             phonenumber: phone.value,
             email: email.value,
         }
-        dispatch(createOrder(user.id+'',data))
+        dispatch(UpdateUser(user.id+'',data))
     }
 
     return (
